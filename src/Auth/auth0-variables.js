@@ -1,5 +1,5 @@
 export const AUTH_CONFIG = {
   domain: 'devhoot.auth0.com',
-  clientId: 'hGk4Hok8fE9TslQbzTWJrnD2pe3Qi6IL',
-  callbackUrl: 'http://localhost:3000/callback'
+  clientId: '8ye2nicwIDYFP0G5CkJ3s3ulSijVogU7',
+  callbackUrl: 'https://hasuratodowithapollo.herokuapp.com/callback'
 }
