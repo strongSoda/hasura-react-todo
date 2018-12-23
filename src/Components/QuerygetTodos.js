@@ -1,7 +1,10 @@
 import gql from "graphql-tag";
 
+
 export const getTodos = gql`{
-    todos{
+
+    todos
+    {
         todo_id
         todo_text
         todo_mark
