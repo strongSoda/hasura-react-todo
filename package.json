@@ -1,7 +1,7 @@
 {
   "name": "centralized-login",
   "version": "0.2.0",
-  "homepage": "https://strongsoda.github.io/hasuratodowithapollo/",
+  "homepage": "https://hasuratodowithapollo.herokuapp.com/",
   "private": true,
   "devDependencies": {
     "react-scripts": "^2.1.1"
