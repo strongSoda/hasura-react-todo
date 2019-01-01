@@ -46,7 +46,7 @@ class AddTodo extends Component {
                     >
 
                     {
-                        <FormGroup controlId="Createtodo" style={{'margin-bottom':'0px'}}>
+                        <FormGroup controlId="Createtodo" >
                             <InputGroup>
                             <FormControl
                                 type="text"

@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-import { Navbar, Button } from 'react-bootstrap';
-import Grid from 'react-bootstrap/lib/Grid';
-import Row from 'react-bootstrap/lib/Row';
-import Col from 'react-bootstrap/lib/Col';
+import { Navbar, Button, Nav, NavItem, Image, Grid, Row, Col } from 'react-bootstrap';
+import Hasura from './assets/hasura.png';
 import './App.css';
 
 
@@ -19,68 +17,84 @@ class App extends Component {
     this.props.auth.logout();
   }
 
-  componentDidMount() {
-    const { renewSession } = this.props.auth;
-
-    if (localStorage.getItem('isLoggedIn') === 'true') {
-      renewSession();
-    }
-  }
-
   render() {
     const { isAuthenticated } = this.props.auth;
 
     return (
-      
-        <div>
-          <Navbar fluid>
-            <Navbar.Header>
-            <Grid>
-              <Row>
-                <Col md={4}>
-                  <Navbar.Brand>
-                    <a href="#">Auth0 - React</a>
-                  </Navbar.Brand>
-                </Col>
-              {/* <Button
-                bsStyle="primary"
-                className="btn-margin"
-                onClick={this.goTo.bind(this, 'home')}
-              >
-                Home
-              </Button> */}
-              {
-                !isAuthenticated() && (
-                  <Col md={4}>
+      <div>
+        <Navbar style = {{ background: `#38445a`, borderRadius: `0px` }}  inverse collapseOnSelect>
+          <Navbar.Header>
+            <Navbar.Brand>
+              <a href="/" style={{ 'paddingTop': '23px' }}>Todo App</a>
+            </Navbar.Brand>
+            <Navbar.Toggle />
+          </Navbar.Header>
+          <Navbar.Collapse>
+            <Nav pullRight>
+            <NavItem eventKey={1}>
+                {
+                  isAuthenticated() && (
                     <Button
-                      id="qsLoginBtn"
-                      bsStyle="primary"
+                      bsStyle="success"
+                      className="btn-margin"
+                      onClick={this.goTo.bind(this, 'home')}
+                    >
+                      Home
+            </Button>
+                  )
+                }
+
+              </NavItem>
+              <NavItem eventKey={2} href="#">
+                {
+                  !isAuthenticated() && (
+                    <Button
+                      bsStyle="info"
                       className="btn-margin"
                       onClick={this.login.bind(this)}
                     >
                       Log In
-                    </Button>
-                  </Col>   
+                  </Button>
                   )
-              }
-              </Row> 
-              {
-                isAuthenticated() && (
+                }
+                {
+                  isAuthenticated() && (
                     <Button
-                      id="qsLogoutBtn"
                       bsStyle="danger"
-                      className="btn-margin logout"
+                      className="btn-margin"
                       onClick={this.logout.bind(this)}
                     >
                       Log Out
-                    </Button>
+                  </Button>
                   )
-              }
-             </Grid>   
-            </Navbar.Header>
-          </Navbar>
-          {/* add component for home page details */}
-        </div> 
+                }
+              </NavItem>
+            </Nav>
+          </Navbar.Collapse>
+        </Navbar>
+        {
+          !isAuthenticated() && (
+            <div className="container">
+              <Grid>
+                <Row>
+                  <Col md={2} mdPush={4}>
+                  <Image src={Hasura} style={{ margin: `20px` }} responsive />
+                   
+                    <Button
+                      bsStyle="info"
+                      className="btn-margin"
+                      onClick={this.login.bind(this)}
+                      style={{ position: "relative", left: `2.5em` }}
+                    >
+                      Sign In / Sign Up
+                  </Button>
+                  </Col>
+                </Row>
+              </Grid>
+            </div>
+          )
+        }
+      </div>
 
     );
   }
