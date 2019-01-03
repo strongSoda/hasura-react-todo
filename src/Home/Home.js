@@ -9,7 +9,7 @@ export const client = new ApolloClient({
   connectionParams: () => {
     return {
         headers: {
-          Authorization: `Bearer ${ACCESS_TOKEN}`,
+          Authorization:  ACCESS_TOKEN ? `Bearer ${ACCESS_TOKEN}`: "",
         }
       }
     }
