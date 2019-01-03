@@ -9,7 +9,6 @@ export const client = new ApolloClient({
   connectionParams: () => {
     return {
         headers: {
-          "Access-Control-Allow-Origin": "*",
           Authorization:  ACCESS_TOKEN ? `Bearer ${ACCESS_TOKEN}`: "",
         }
       }
