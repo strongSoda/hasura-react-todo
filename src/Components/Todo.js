@@ -37,6 +37,13 @@ class Todo extends Component {
                     <Grid>
                         <Row>
                             <Col md={8} mdPush={2}>
+                            <ListGroup>
+                                    <ListGroupItem>
+                                        <h4>Add Todo</h4>
+                                        <AddTodo />
+                                    </ListGroupItem>
+                                </ListGroup>
+                                
                             <h1>ToDo</h1>
                             <p>
                                 <blockquote>Todos in green are completed, todos in red are pending. Check to mark todo as done. Cross to delete a todo.</blockquote>
@@ -55,12 +62,6 @@ class Todo extends Component {
                                             <h4>{count = count + 1}. {todo.todo_text}</h4>
                                         </ListGroupItem>
                                     ))}
-                                </ListGroup>
-                                <ListGroup>
-                                    <ListGroupItem>
-                                        <h4>Add Todo</h4>
-                                        <AddTodo />
-                                    </ListGroupItem>
                                 </ListGroup>
                             </Col>
                         </Row>
