@@ -62,10 +62,7 @@ class App extends Component {
                     <Button
                       bsStyle="danger"
                       className="btn-margin"
-                      onClick= {() => {
-                        // call your auth logout code then reset store
-                        this.logout.bind(this).then(() => client.resetStore());
-                      }}
+                      onClick={this.logout.bind(this)}
                     >
                       Log Out
                   </Button>
