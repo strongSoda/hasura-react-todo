@@ -5,7 +5,6 @@ import { Mutation } from "react-apollo";
 import Button from 'react-bootstrap/lib/Button';
 import { FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
-import {Form } from 'react-bootstrap/lib/Form';
 
 class MarkTodo extends Component {
 
@@ -20,9 +19,9 @@ class MarkTodo extends Component {
      <div className="todo">
        <Mutation mutation={markTodo}>
                 {(update_todos, { data }) => (
-                    <Form onSubmit={() => {
+                    <Button onClick={() => {
                         this.marktodo_completed(update_todos);
-                    }} ><Button type='submit'><FontAwesomeIcon icon={faCheck} style={{ color: 'green' }} /></Button></Form>
+                    }} ><FontAwesomeIcon icon={faCheck} style={{ color: 'green' }} /></Button>
                 )}
             </Mutation>
      </div>
