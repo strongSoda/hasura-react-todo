@@ -22,7 +22,7 @@ class MarkTodo extends Component {
                 {(update_todos, { data }) => (
                     <Form onSubmit={() => {
                         this.marktodo_completed(update_todos);
-                    }} ><FontAwesomeIcon icon={faCheck} style={{ color: 'green' }} /></Form>
+                    }} ><Button type='submit'><FontAwesomeIcon icon={faCheck} style={{ color: 'green' }} /></Button></Form>
                 )}
             </Mutation>
      </div>
