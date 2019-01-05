@@ -19,9 +19,9 @@ class MarkTodo extends Component {
      <div className="todo">
        <Mutation mutation={markTodo}>
                 {(update_todos, { data }) => (
-                    <Button onClick={() => {
+                    <Form onSubmit={() => {
                         this.marktodo_completed(update_todos);
-                    }} ><FontAwesomeIcon icon={faCheck} style={{ color: 'green' }} /></Button>
+                    }} ><FontAwesomeIcon icon={faCheck} style={{ color: 'green' }} /></Form>
                 )}
             </Mutation>
      </div>
