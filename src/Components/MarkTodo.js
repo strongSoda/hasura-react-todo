@@ -19,7 +19,8 @@ class MarkTodo extends Component {
      <div className="todo">
        <Mutation mutation={markTodo}>
                 {(update_todos, { data }) => (
-                    <Button onClick={() => {
+                    <Button onClick={e => {
+                        e.preventDefault();
                         this.marktodo_completed(update_todos);
                     }} ><FontAwesomeIcon icon={faCheck} style={{ color: 'green' }} /></Button>
                 )}
