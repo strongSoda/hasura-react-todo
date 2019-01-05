@@ -5,6 +5,9 @@ import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { Mutation } from "react-apollo";
 import Button from 'react-bootstrap/lib/Button';
 import { FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import Form from 'react-bootstrap/lib/Form';
+import FormGroup from 'react-bootstrap/lib/FormGroup';
+import InputGroup from 'react-bootstrap/lib/InputGroup';
 
 class DeleteTodo extends Component {
  
