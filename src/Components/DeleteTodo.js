@@ -18,10 +18,9 @@ class DeleteTodo extends Component {
      <div className="">
         <Mutation mutation={deleteTodo}>
                 {(delete_todos, { data }) => (
-                    <Button onClick={e => {
-                        e.preventDefault();
-                        this.deletetodo(delete_todos);
-                    }}  ><FontAwesomeIcon icon={faTimes} style={{ color: 'red' }} /></Button>
+                    <Button onClick={
+                        this.deletetodo(delete_todos)
+                    }  ><FontAwesomeIcon icon={faTimes} style={{ color: 'red' }} /></Button>
                 )}
             </Mutation>
      </div>
