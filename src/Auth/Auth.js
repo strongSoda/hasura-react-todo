@@ -43,20 +43,20 @@ export default class Auth {
   setSession(authResult) {
     // Set the time that the Access Token will expire at
     let expiresAt = JSON.stringify((authResult.expiresIn * 1000) + new Date().getTime());
-    sessionStorage.setItem('access_token', authResult.accessToken);
-    sessionStorage.setItem('id_token', authResult.idToken);
-    sessionStorage.setItem('expires_at', expiresAt);
-    sessionStorage.setItem('sub', authResult.idTokenPayload.sub);
+    localStorage.setItem('access_token', authResult.accessToken);
+    localStorage.setItem('id_token', authResult.idToken);
+    localStorage.setItem('expires_at', expiresAt);
+    localStorage.setItem('sub', authResult.idTokenPayload.sub);
     // navigate to the home route
     history.replace('/home');
   }
 
   logout() {
     // Clear Access Token and ID Token from local storage
-    sessionStorage.removeItem('access_token');
-    sessionStorage.removeItem('id_token');
-    sessionStorage.removeItem('expires_at');
-    sessionStorage.removeItem('sub');
+    localStorage.removeItem('access_token');
+    localStorage.removeItem('id_token');
+    localStorage.removeItem('expires_at');
+    localStorage.removeItem('sub');
     // navigate to the app route
     history.replace('/');
   }
@@ -64,7 +64,7 @@ export default class Auth {
   isAuthenticated() {
     // Check whether the current time is past the 
     // Access Token's expiry time
-    let expiresAt = JSON.parse(sessionStorage.getItem('expires_at'));
+    let expiresAt = JSON.parse(localStorage.getItem('expires_at'));
     return new Date().getTime() < expiresAt;
   }
 
