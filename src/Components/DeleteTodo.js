@@ -18,11 +18,8 @@ class DeleteTodo extends Component {
     }
     
     deletetodo(delete_todos) {
-
-        var todo_user = localStorage.getItem('sub');
-        this.setState({ todo_user: todo_user }, function () {
         delete_todos({ variables: this.props, refetchQueries: [{ query: getTodos }] });
-    });
+    }
 }
     
   render() {
@@ -32,6 +29,7 @@ class DeleteTodo extends Component {
                 {(delete_todos, { data }) => (
 
                     <Button onClick={e => {
+                        e.preventDefault();
                         this.deletetodo(delete_todos);
                     }}  ><FontAwesomeIcon icon={faTimes} style={{ color: 'red' }} /></Button>
                 )}
