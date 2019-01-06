@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import Todo from '.././Components/Todo';
 import ApolloClient from "apollo-boost";
 import { ApolloProvider } from "react-apollo";
+import localforage from 'localforage/dist/localforage';
+
 
 const ACCESS_TOKEN = localforage.getItem('access_token');
 export const client = new ApolloClient({
