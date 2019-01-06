@@ -19,11 +19,15 @@ class Home extends Component {
   render() {
     const { isAuthenticated } = this.props.auth;
     return (
-      <ApolloProvider client={client}>
-           
-                   <Todo />
-  
-      </ApolloProvider>
+<div className="container">
+{
+  isAuthenticated() && (
+    <ApolloProvider client={client}>
+        <Todo />
+    </ApolloProvider>
+  )
+}
+</div>
     );
   }
 }
