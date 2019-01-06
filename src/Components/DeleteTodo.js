@@ -11,6 +11,12 @@ import InputGroup from 'react-bootstrap/lib/InputGroup';
 
 class DeleteTodo extends Component {
  
+    constructor(props) {
+        super(props);
+
+        this.state = {}
+    }
+    
     deletetodo(delete_todos) {
         delete_todos({ variables: this.props, refetchQueries: [{ query: getTodos }] });
     }

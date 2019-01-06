@@ -7,7 +7,13 @@ import { FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
 
 class MarkTodo extends Component {
+    
+    constructor(props) {
+        super(props);
 
+        this.state = {}
+    }
+    
     marktodo_completed(update_todos) {
         update_todos({ variables: this.props, refetchQueries: [{ query: getTodos }] })
         // , { query: getAllTodos }
