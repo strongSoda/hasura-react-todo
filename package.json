@@ -16,6 +16,7 @@
     "bootstrap": "^3.3.7",
     "gh-pages": "^2.0.1",
     "graphql": "^14.0.2",
+    "localforage": "^1.7.3",
     "react": "^15.6.1",
     "react-apollo": "^2.3.3",
     "react-bootstrap": "^0.31.2",
