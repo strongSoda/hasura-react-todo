@@ -3,7 +3,7 @@ import Todo from '.././Components/Todo';
 import ApolloClient from "apollo-boost";
 import { ApolloProvider } from "react-apollo";
 
-export const client;
+export var client;
 
 class Home extends Component {
 
