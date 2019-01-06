@@ -1,7 +1,7 @@
 import history from '../history';
 import auth0 from 'auth0-js';
 import { AUTH_CONFIG } from './auth0-variables';
-import localforage from './localforage/dist/localforage';
+import localforage from 'localforage/dist/localforage';
 
 export default class Auth {
   accessToken;
