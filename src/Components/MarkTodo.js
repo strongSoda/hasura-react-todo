@@ -16,7 +16,6 @@ class MarkTodo extends Component {
   render() {
    
     return (
-     <div className="todo">
        <Mutation mutation={markTodo}>
                 {(update_todos, { data }) => (
                     <Button onClick={e => {
@@ -25,7 +24,6 @@ class MarkTodo extends Component {
                     }} ><FontAwesomeIcon icon={faCheck} style={{ color: 'green' }} /></Button>
                 )}
             </Mutation>
-     </div>
     );
   }
 }

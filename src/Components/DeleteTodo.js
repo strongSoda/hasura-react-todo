@@ -18,7 +18,6 @@ class DeleteTodo extends Component {
   render() {
 
     return (
-     <div className="">
         <Mutation mutation={deleteTodo}>
                 {(delete_todos, { data }) => (
 
@@ -28,7 +27,6 @@ class DeleteTodo extends Component {
                     }}  ><FontAwesomeIcon icon={faTimes} style={{ color: 'red' }} /></Button>
                 )}
             </Mutation>
-     </div>
     );
   }
 }
