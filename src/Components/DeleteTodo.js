@@ -18,8 +18,12 @@ class DeleteTodo extends Component {
     }
     
     deletetodo(delete_todos) {
+
+        var todo_user = localStorage.getItem('sub');
+        this.setState({ todo_user: todo_user }, function () {
         delete_todos({ variables: this.props, refetchQueries: [{ query: getTodos }] });
-    }
+    });
+}
     
   render() {
 
