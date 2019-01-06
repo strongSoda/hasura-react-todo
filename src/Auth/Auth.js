@@ -57,8 +57,8 @@ export default class Auth {
     localStorage.removeItem('id_token');
     localStorage.removeItem('expires_at');
     localStorage.removeItem('sub');
-    // navigate to the home route
-    history.replace('/home');
+    // navigate to the app route
+    history.replace('/');
   }
 
   isAuthenticated() {
