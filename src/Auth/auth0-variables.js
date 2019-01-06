@@ -3,5 +3,5 @@ export const AUTH_CONFIG = {
   clientId: 'hGk4Hok8fE9TslQbzTWJrnD2pe3Qi6IL',
   responseType: 'token id_token',
   scope: 'openid',
-  callbackUrl: 'https://hasuratodowithapollo.herokuapp.com/callback'
+  callbackUrl: 'http://localhost:3000/'
 }
