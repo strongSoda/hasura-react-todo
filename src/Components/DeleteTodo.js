@@ -20,7 +20,6 @@ class DeleteTodo extends Component {
     deletetodo(delete_todos) {
         delete_todos({ variables: this.props, refetchQueries: [{ query: getTodos }] });
     }
-}
     
   render() {
 
@@ -36,6 +35,8 @@ class DeleteTodo extends Component {
             </Mutation>
     );
   }
+
 }
+
 
 export default DeleteTodo;
