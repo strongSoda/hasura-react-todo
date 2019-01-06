@@ -14,8 +14,6 @@ export default class Auth {
     redirectUri: AUTH_CONFIG.callbackUrl,
     responseType: 'token id_token',
     scope: 'openid',
-    sso: true,
-    autoParseHash: false
   });
 
   constructor() {
