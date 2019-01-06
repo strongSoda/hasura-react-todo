@@ -45,10 +45,10 @@ export default class Auth {
     // Set the time that the Access Token will expire at
     let expiresAt = JSON.stringify((authResult.expiresIn * 1000) + new Date().getTime());
 
-    localforage.setItem('access_token', authResult.accessToken);
-    localforage.setItem('id_token', authResult.idToken);
-    localforage.setItem('expires_at', expiresAt);
-    localforage.setItem('sub', authResult.idTokenPayload.sub);
+    localStorage.setItem('access_token', authResult.accessToken);
+    localStorage.setItem('id_token', authResult.idToken);
+    localStorage.setItem('expires_at', expiresAt);
+    localStorage.setItem('sub', authResult.idTokenPayload.sub);
 
     // navigate to the home route
     history.replace('/home');
@@ -56,10 +56,10 @@ export default class Auth {
 
   logout() {
     // Clear Access Token and ID Token from local storage
-    localforage.removeItem('access_token');
-    localforage.removeItem('id_token');
-    localforage.removeItem('expires_at');
-    localforage.removeItem('sub');
+    localStorage.removeItem('access_token');
+    localStorage.removeItem('id_token');
+    localStorage.removeItem('expires_at');
+    localStorage.removeItem('sub');
     // navigate to the  route
     history.replace('/');
   }
@@ -67,7 +67,7 @@ export default class Auth {
   isAuthenticated() {
     // Check whether the current time is past the 
     // Access Token's expiry time
-    let expiresAt = JSON.parse(localforage.getItem('expires_at'));
+    let expiresAt = JSON.parse(localStorage.getItem('expires_at'));
 
     return new Date().getTime() < expiresAt;
   }
