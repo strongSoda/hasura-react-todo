@@ -32,7 +32,6 @@ class DeleteTodo extends Component {
                 {(delete_todos, { data }) => (
 
                     <Button onClick={e => {
-                        e.preventDefault();
                         this.deletetodo(delete_todos);
                     }}  ><FontAwesomeIcon icon={faTimes} style={{ color: 'red' }} /></Button>
                 )}
