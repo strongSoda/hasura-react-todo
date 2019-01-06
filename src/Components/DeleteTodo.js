@@ -18,7 +18,7 @@ class DeleteTodo extends Component {
     }
     
     deletetodo(delete_todos) {
-        delete_todos({ variables: this.state, refetchQueries: [{ query: getTodos }] });
+        delete_todos({ variables: this.props, refetchQueries: [{ query: getTodos }] });
     }
     
   render() {
