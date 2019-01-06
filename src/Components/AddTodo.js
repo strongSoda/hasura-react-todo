@@ -35,7 +35,6 @@ class AddTodo extends Component {
   render() {
 
     return (
-     <div className="todo">
        <Mutation mutation={addTodo}>
                 {(insert_todos, { data }) => (
                     <Form
@@ -64,7 +63,6 @@ class AddTodo extends Component {
                     </Form>
                 )}
             </Mutation>
-     </div>
     );
   }
 }
