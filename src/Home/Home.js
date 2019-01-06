@@ -2,10 +2,26 @@ import React, { Component } from 'react';
 import Todo from '.././Components/Todo';
 import ApolloClient from "apollo-boost";
 import { ApolloProvider } from "react-apollo";
-import { localforage } from 'localforage/dist/localforage';
+import Forage from 'react-localforage'
 
 
-const ACCESS_TOKEN = localforage.getItem('access_token');
+const ACCESS_TOKEN =   <Forage.GetItem
+                          key='access_token'
+                          render={({inProgress, value, error}) => {
+                            return (
+                              <div>
+                                {error &&
+                                <div>
+                                  {error.message}
+                                </div>}
+                                {inProgress && <progress/>}
+                                {value &&
+                                <pre>{JSON.stringify(value, null, 2)}</pre>}
+                              </div>
+                            )
+                          }}
+                        />
+
 export const client = new ApolloClient({
   uri: "https://hasura-react-todo-apollo.herokuapp.com/v1alpha1/graphql",
   headers: {

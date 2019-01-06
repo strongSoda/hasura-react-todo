@@ -1,7 +1,7 @@
 import history from '../history';
 import auth0 from 'auth0-js';
 import { AUTH_CONFIG } from './auth0-variables';
-import { localforage } from 'localforage/dist/localforage';
+import Forage from 'react-localforage'
 
 export default class Auth {
   accessToken;
@@ -44,10 +44,93 @@ export default class Auth {
   setSession(authResult) {
     // Set the time that the Access Token will expire at
     let expiresAt = JSON.stringify((authResult.expiresIn * 1000) + new Date().getTime());
-    localforage.setItem('access_token', authResult.accessToken);
-    localforage.setItem('id_token', authResult.idToken);
-    localforage.setItem('expires_at', expiresAt);
-    localforage.setItem('sub', authResult.idTokenPayload.sub);
+
+    <div>
+    <Forage.SetItem
+  itemKey='auth-token'
+  itemValue={authResult.accessToken}
+  render={({inProgress, value, error}) => {
+    return (
+      <div>
+        {error &&
+        <div>
+          {error.message}
+        </div>}
+        {inProgress && <progress/>}
+        {value &&
+        <div>
+          {value}
+        </div>}
+      </div>
+    )
+  }}
+/>
+
+<Forage.SetItem
+itemKey='auth-token'
+itemValue={authResult.idToken}
+render={({inProgress, value, error}) => {
+  return (
+    <div>
+      {error &&
+      <div>
+        {error.message}
+      </div>}
+      {inProgress && <progress/>}
+      {value &&
+      <div>
+        {value}
+      </div>}
+    </div>
+  )
+}}
+/>
+
+<Forage.SetItem
+itemKey='expires_at'
+itemValue={expiresAt}
+render={({inProgress, value, error}) => {
+  return (
+    <div>
+      {error &&
+      <div>
+        {error.message}
+      </div>}
+      {inProgress && <progress/>}
+      {value &&
+      <div>
+        {value}
+      </div>}
+    </div>
+  )
+}}
+/>
+
+<Forage.SetItem
+itemKey='sub'
+itemValue={authResult.idTokenPayload.sub}
+render={({inProgress, value, error}) => {
+  return (
+    <div>
+      {error &&
+      <div>
+        {error.message}
+      </div>}
+      {inProgress && <progress/>}
+      {value &&
+      <div>
+        {value}
+      </div>}
+    </div>
+  )
+}}
+/>
+</div>
+    // localforage.setItem('access_token', authResult.accessToken);
+    // localforage.setItem('id_token', authResult.idToken);
+    // localforage.setItem('expires_at', expiresAt);
+    // localforage.setItem('sub', authResult.idTokenPayload.sub);
+
     // navigate to the home route
     history.replace('/home');
   }
@@ -65,7 +148,25 @@ export default class Auth {
   isAuthenticated() {
     // Check whether the current time is past the 
     // Access Token's expiry time
-    let expiresAt = JSON.parse(localforage.getItem('expires_at'));
+    let expiresAt =  <Forage.GetItem
+    key='expires_at'
+    render={({inProgress, value, error}) => {
+      return (
+        <div>
+          {error &&
+          <div>
+            {error.message}
+          </div>}
+          {inProgress && <progress/>}
+          {value &&
+          <pre>{JSON.stringify(value, null, 2)}</pre>}
+        </div>
+      )
+    }}
+  />
+    
+    // JSON.parse(localforage.getItem('expires_at'));
+    
     return new Date().getTime() < expiresAt;
   }
 
