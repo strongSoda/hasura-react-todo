@@ -3,6 +3,9 @@
   "version": "0.2.0",
   "homepage": "https://hasuratodowithapollo.herokuapp.com/",
   "private": true,
+  "devDependencies": {
+    "react-scripts": "^2.1.1"
+  },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.6.3",
     "@fortawesome/fontawesome-svg-core": "^1.2.12",
